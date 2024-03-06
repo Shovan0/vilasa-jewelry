@@ -63,7 +63,8 @@ exports.loginUser = asyncErrorHandler(async (req, res, next) => {
 
     // Check if email and password are provided
     if (!email || !password) {
-        return next(new ErrorHandler('Please provide email and password', 400));
+        return next(new ErrorHandler('Please provide email and password', 400)).toJSON();
+        
     }
 
     // Check if the user exists
